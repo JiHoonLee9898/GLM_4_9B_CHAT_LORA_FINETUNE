@@ -15,7 +15,7 @@ import torch
 from threading import Thread
 from transformers import AutoTokenizer, StoppingCriteria, StoppingCriteriaList, TextIteratorStreamer, AutoModel
 
-MODEL_PATH = os.environ.get('MODEL_PATH', 'THUDM/glm-4-9b-chat')
+MODEL_PATH = os.environ.get('/data1/fabulator/finetuned_model/glm-4-9b-chat', '/data1/fabulator/finetuned_model/glm-4-9b-chat')
 
 ## If use peft model.
 # def load_model_and_tokenizer(model_dir, trust_remote_code: bool = True):
@@ -43,6 +43,7 @@ tokenizer = AutoTokenizer.from_pretrained(
 model = AutoModel.from_pretrained(
     MODEL_PATH,
     trust_remote_code=True,
+    low_cpu_mem_usage=True,
     device_map="auto").eval()
 
 

@@ -41,46 +41,52 @@ def load_model_and_tokenizer(
 def main(
         model_dir: Annotated[str, typer.Argument(help='')],
 ):
+    # messages = [
+    #     {
+    #         "role": "system", "content": "",
+    #         "tools":
+    #             [
+    #                 {
+    #                     "type": "function",
+    #                     "function": {
+    #                         "name": "create_calendar_event",
+    #                         "description": "Create a new calendar event",
+    #                         "parameters": {
+    #                             "type": "object",
+    #                             "properties": {
+    #                                 "title": {
+    #                                     "type": "string",
+    #                                     "description": "The title of the event"
+    #                                 },
+    #                                 "start_time": {
+    #                                     "type": "string",
+    #                                     "description": "The start time of the event in the format YYYY-MM-DD HH:MM"
+    #                                 },
+    #                                 "end_time": {
+    #                                     "type": "string",
+    #                                     "description": "The end time of the event in the format YYYY-MM-DD HH:MM"
+    #                                 }
+    #                             },
+    #                             "required": [
+    #                                 "title",
+    #                                 "start_time",
+    #                                 "end_time"
+    #                             ]
+    #                         }
+    #                     }
+    #                 }
+    #             ]
+
+    #     },
+    #     {
+    #         "role": "user",
+    #         "content": "Can you help me create a calendar event for my meeting tomorrow? The title is \"Team Meeting\". It starts at 10:00 AM and ends at 11:00 AM."
+    #     },
+    # ]
     messages = [
         {
-            "role": "system", "content": "",
-            "tools":
-                [
-                    {
-                        "type": "function",
-                        "function": {
-                            "name": "create_calendar_event",
-                            "description": "Create a new calendar event",
-                            "parameters": {
-                                "type": "object",
-                                "properties": {
-                                    "title": {
-                                        "type": "string",
-                                        "description": "The title of the event"
-                                    },
-                                    "start_time": {
-                                        "type": "string",
-                                        "description": "The start time of the event in the format YYYY-MM-DD HH:MM"
-                                    },
-                                    "end_time": {
-                                        "type": "string",
-                                        "description": "The end time of the event in the format YYYY-MM-DD HH:MM"
-                                    }
-                                },
-                                "required": [
-                                    "title",
-                                    "start_time",
-                                    "end_time"
-                                ]
-                            }
-                        }
-                    }
-                ]
-
-        },
-        {
             "role": "user",
-            "content": "Can you help me create a calendar event for my meeting tomorrow? The title is \"Team Meeting\". It starts at 10:00 AM and ends at 11:00 AM."
+            "content": "창의적인 로그라인 하나 만들어",
         },
     ]
     model, tokenizer = load_model_and_tokenizer(model_dir)

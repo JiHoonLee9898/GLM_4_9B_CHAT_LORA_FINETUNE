@@ -442,6 +442,5 @@ def main(
     if test_dataset is not None:
         trainer.predict(test_dataset)
 
-
 if __name__ == '__main__':
     app()
